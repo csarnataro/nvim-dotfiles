@@ -14,6 +14,16 @@ return {
 		-- fill any relevant options here
 	},
 	config = function()
+    require("neo-tree").setup({
+      buffers = { follow_current_file = { enabled = true } },
+      filesystem = {
+        filtered_items = {
+          visible = true,
+          hide_dotfiles = false,
+          hide_gitignored = true,
+        }
+      }
+    })
 		vim.keymap.set("n", "<leader>n", ":Neotree filesystem reveal left <CR>", { desc = "Neotree window" })
 	end,
 }
